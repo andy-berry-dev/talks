@@ -23,8 +23,12 @@
 	</script>
 
 	<style>
-		.reveal .wide-margin {
-			margin:0 50px !important;
+		.reveal ul {
+			margin:0 50px;
+		}
+		.reveal p {
+			line-height: 1.5;
+			margin: 20px 0px;
 		}
 	</style>
 
@@ -35,21 +39,114 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-
+			
 			<section data-markdown><script type="text/template">
 				# Simplify your JS Workflow with [BladeRunnerJS](bladerunnerjs.org)
 
-				<br/><br/>
 				Andy Berry [@andyberry88](https://twitter.com/andyberry88)
 						
 				[www.andy-berry.co.uk](http://www.andy-berry.co.uk)
 				
-				<br/>
 				[Caplin Systems](http://www.caplin.com)
-			</script></section>
-			
+			</script></section> 
+
+			<section>
+				<section data-markdown><script type="text/template">
+					## What do we mean by 'workflow'
+					
+					<blockquote>
+						"the sequence of industrial, administrative, or other processes through which a piece of work passes from initiation to completion."
+					</blockquote>
+					<small>[Google](http://www.google.co.uk/search?q=define%3A+workflow)</small>
+				</script></section>
+	
+	
+				<section data-markdown><script type="text/template">
+					## In our terms...
+					
+					## Build (cool) stuff
+
+					fetch dependencies <!-- .element: class="fragment" -->
+					
+					concatenation <!-- .element: class="fragment" -->
+					
+					minification <!-- .element: class="fragment" -->
+					
+					LESS/SASS compilation <!-- .element: class="fragment" -->
+					
+					linting <!-- .element: class="fragment" -->
+					
+					filter some HTML (cache buster) <!-- .element: class="fragment" -->
+					
+					write app cache <!-- .element: class="fragment" -->
+					
+					testing</p> <!-- .element: class="fragment" -->
+				</script></section>
+			</section>
+
+
+			<section>
+				<section data-markdown><script type="text/template">
+					## But theres already something that does (all|some) of that!
+
+					- Grunt
+					- Yeoman
+							
+							
+					- Gulp
+					- Brunch
+							
+							
+					- Jake
+					- Bower
+				</script></section>
+
+				<section data-markdown><script type="text/template">
+					## They do the same thing
+
+					1. You run a command
+					2. You wait while your app is 'built'
+					3. You reload your app
+					4. You change a file and start all over again
+
+					[OR]
+							
+					The clever way: You run the command once, and it automagically 'builds' each time you change a file
+
+				</script></section>
+
+				<section data-markdown><script type="text/template">
+					## Great!
+					### We're done, time for more beer
+
+				</script></section>
+				
+				<section>
+					<h2>Theres a problem</h2>
+							
+					<div class="fragment fade-in">
+						<h2>Its slow*</h2>
+						<small>* For a large number of files</small>
+					</div>
+				</section>
+				
+				<section data-markdown><script type="text/template">
+					## I don't like waiting
+					
+					<img src="/images/glasgowjs-bladerunnerjs-workflow/grumpy-cat-doesnt-like-to-wait_o_916986.jpg" style="max-height:500px"/>
+							
+					<small>OK, 8 minutes is a small exaggeration</small>
+
+				</script></section>
+
+				<section data-markdown><script type="text/template">
+					## BladeRunnerJS simplifies all of that
+				</script></section>
+				
+			</section>
 			
 			<section>
+				
 				<section data-markdown><script type="text/template">
 					<a href="http://bladerunnerjs.org">
 						<img src="/images/glasgowjs-bladerunnerjs-workflow/bladerunner-js-white-trans-lrg.png" style="border: 0; box-shadow: none; background: none; width: 50%"; />
@@ -58,58 +155,51 @@
 					[@BladeRunnerJS](https://twitter.com/bladerunnerjs)
 	
 					<blockquote>
-						"a development toolkit and lightweight framework for building modular large-scale HTML5 single page web apps. It consists of a set of conventions plus associated tools and libraries that make it easy to develop, test, deploy and maintain large JavaScript apps"
+						"a development <span class="fragment highlight-red">toolkit</span> and lightweight <span class="fragment highlight-red">framework</span> for building modular large-scale HTML5 single page web apps. It consists of a set of <span class="fragment highlight-red">conventions</span> plus associated <span class="fragment highlight-red">tools</span> and <span class="fragment highlight-red">libraries</span> that make it easy to <span class="fragment highlight-red">develop</span>, <span class="fragment highlight-red">test</span>, deploy and <span class="fragment highlight-red">maintain</span> large JavaScript apps"
 					</blockquote>
 				</script></section>
 
-				<section>
-					<ul class="wide-margin fragment">
-						<li>toolkit</li>
-						<li>framework</li>
-						<li>large-scale</li>
-					</ul>
+				<section data-markdown><script type="text/template">
+					## WTF does that mean?
+				</script></section>
 
-					<ul class="wide-margin fragment">
-						<li>conventions</li>
-						<li>tools</li>
-						<li>libraries</li>
-					</ul>
+				<section data-markdown><script type="text/template">
+					BladeRunnerJS provides a set of tools that will automatically concatenate, minify, lint  and filter all of your source code and assets.
+					
+					It does this on every reload of the app.
+					
+					F5 is your build.
+				</script></section>
 
-					<ul class="wide-margin fragment">
-						<li>develop</li>
-						<li>test</li>
-						<li>maintain</li>
-					</ul>
-				</section>
+				<section data-markdown><script type="text/template">
+					## DEMO TIME
+				</script></section>
+				
 			</section>
 
 
 			<section>
 				<section data-markdown><script type="text/template">
-					## What tools do we have available?
-	
-					- Grunt
-					- Yeoman
-					- Gulp
-					- Brunch
-					- Jake
-					- Bower
-	
-				</script></section>
-			
-				<section data-markdown><script type="text/template">
-					## They have one thing in common
-	
-					You start a process, and that process responds to files changing and responds and generates a file(s)
-					
-				</script></section>
-
-				<section data-markdown><script type="text/template">
-					
-					### I don't like waiting
-
+					# Conclusion
 				</script></section>
 			</section>
+
+
+			<section data-markdown><script type="text/template">
+				## Thanks. Questions
+
+				Andy Berry [@andyberry88](https://twitter.com/andyberry88)
+
+				[www.andy-berry.co.uk](http://www.andy-berry.co.uk)
+
+				<a href="http://bladerunnerjs.org">
+					<img src="/images/glasgowjs-bladerunnerjs-workflow/bladerunner-js-white-trans-lrg.png" style="border: 0; box-shadow: none; background: none; width: 50%"; />
+				</a>
+				
+				[@bladerunnerjs](https://twitter.com/bladerunnerjs)
+
+				[bladerunnerjs.org](http://bladerunnerjs.org)
+			</script></section>
 			
 		</div>
 	</div>
@@ -127,6 +217,8 @@
 			progress: true,
 			history: true,
 			center: true,
+
+			slideNumber: true,
 
 			theme: Reveal.getQueryHash().theme,
 			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none

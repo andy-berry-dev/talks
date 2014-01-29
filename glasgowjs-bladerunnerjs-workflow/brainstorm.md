@@ -41,3 +41,12 @@
 
 
 
+- no build file
+
+
+- so how does BRJS help?
+- first, what is BRJS
+ - bundlers
+ - testing
+ - java, not node.js
+ - deploy wars or flat files*
