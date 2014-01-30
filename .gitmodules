@@ -1,6 +1,6 @@
-[submodule "_reveal.js"]
-	path = _reveal.js
+[submodule "reveal.js"]
+	path = reveal.js
 	url = https://github.com/hakimel/reveal.js.git
-[submodule "_bootstrap"]
-	path = _bootstrap
+[submodule "bootstrap"]
+	path = bootstrap
 	url = https://github.com/twbs/bootstrap.git
