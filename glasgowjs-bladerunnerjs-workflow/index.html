@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
-	<link rel="stylesheet" href="brjs-revealjs-theme.css" id="theme">
+	<link rel="stylesheet" href="brjs-revealjs-theme/style.css" id="theme">
 	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
 
 	<script>
@@ -32,7 +32,7 @@
 	<div class="reveal">
 		<div class="slides">
 			
-<section data-markdown><script type="text/template">
+<section data-markdown data-background="url('images/glasgowjs-bladerunnerjs-workflow/blade-runner-los-angeles.jpg') bottom no-repeat" data-background-size="100%"><script type="text/template">
 	# Simplify your JS Workflow with [BladeRunnerJS](http://bladerunnerjs.org)
 </script></section>
 			
@@ -82,7 +82,7 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-		- Parts of the codebase were fragile and difficult to mainain
+		- Parts of the codebase were fragile and difficult to maintain
 		- Complex dependency problems between parts of the app
 		- Slow tests (the full suite of tests could take 24hrs)
 		- Complex build
@@ -97,11 +97,12 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-		BladeRunner solved all of the problems we'd encountered
-
-		Streamlined development
-		
-		Customers went from 0 -> launch within 1/10th of the time
+		- No more fragile code
+		- Well defined APIs between different parts of the app
+		- Full suite of tests down to <30mins
+		- No build
+		- Streamlined development
+		- Customers went from 0 -> launch within 1/10th of the time
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -125,13 +126,20 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-		provides a set of tools that will simplify your JS workflow
-		
-		automatically concatenates, minifies, lints  and filters all of your source code and assets
-		
-		does this on every reload of the app. F5 is your build.
-		
-		BladeRunnerJS also supplies testing and deployment tools along with a set of conventions for developing large scale apps
+		## Conventions
+		- class based JS
+		- seperation of business functionality
+		- assets live with their associated functionality
+		- MVVM architecture
+	</script></section>
+	
+	<section data-markdown><script type="text/template">
+		## Tools
+		- automatic concatenation, minification and linting
+		- automatic inclusion of assets
+		- single files for development, minified bundles for production
+		- the app is 'built' on F5
+		- dependency analysis to only include assets, source files and libraries you actually use
 	</script></section>
 	
 </section>
@@ -236,16 +244,11 @@
 	
 	<section data-markdown><script type="text/template">
 		## The path to 1.0
-				
-		Refining some features after open sourcing
-				
-		Flat file deployment and simplified directory structure coming soon
-				
-		Global install and context aware commands
-				
-		Bladesets and aspects optional
-				
-		More cool stuff!
+		- Refining some features after open sourcing
+		- Flat file deployment and simplified directory structure coming soon
+		- Global install and context aware commands
+		- Bladesets and aspects optional
+		- More cool stuff!
 		
 		<small>BRJS 1.0 Roadmap - [bladerunnerjs.org/docs/roadmap/](bladerunnerjs.org/docs/roadmap/)</small>
 	</script></section>
