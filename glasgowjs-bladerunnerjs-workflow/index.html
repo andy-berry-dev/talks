@@ -54,9 +54,13 @@
 
 
 <section>
+
+	<section data-markdown><script type="text/template">
+	# Some History
+	</script></section>
 	
 	<section data-markdown><script type="text/template">
-		Caplin Systems has been creating large scale webapps for the last 15 years.
+		Caplin Systems has been creating large scale financial  webapps for the last 15 years.
 	
 		- SDK:
 		  - 1,004 JavaScript files
@@ -83,13 +87,17 @@
 
 	<section data-markdown><script type="text/template">
 		- Parts of the codebase were fragile and difficult to maintain
-		- Complex dependency problems between parts of the app
-		- Slow tests (the full suite of tests could take 24hrs)
-		- Complex build
 		- Problems when multiple teams were developing new features
+		- Complex dependency problems between parts of the app
+		- Complex build
+		- Slow tests (the full suite of tests could take 8hrs)
 		- Every class had to be explicitly included
 	</script></section>
 
+	<section data-markdown><script type="text/template">
+		<img src="images/glasgowjs-bladerunnerjs-workflow/not-fun.png" />
+	</script></section>
+	
 	<section data-markdown><script type="text/template">
 		## The solution? 
 		<br/>
@@ -97,12 +105,13 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-		- No more fragile code
+		- Split up the app
 		- Well defined APIs between different parts of the app
+		- No more fragile code
 		- Full suite of tests down to <30mins
-		- No build
 		- Streamlined development
-		- Customers went from 0 -> launch within 1/10th of the time
+		- No build
+		- Allowed customers to go from 0 -> launch within 1/10th of the time
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -124,10 +133,10 @@
 			"a development <span class="highlight">toolkit</span> and lightweight <span class="highlight">framework</span> for building modular large-scale HTML5 single page web apps. It consists of a set of <span class="highlight">conventions</span> plus associated <span class="highlight">tools</span> and <span class="highlight">libraries</span> that make it easy to <span class="highlight">develop</span>, <span class="highlight">test</span>, deploy and <span class="highlight">maintain</span> large JavaScript apps"
 		</blockquote>
 	</script></section>
-
+		
 	<section data-markdown><script type="text/template">
 		## Conventions
-		- class based JS
+		- OO based JS
 		- seperation of business functionality
 		- assets live with their associated functionality
 		- MVVM architecture
@@ -139,7 +148,7 @@
 		- automatic inclusion of assets
 		- single files for development, minified bundles for production
 		- the app is 'built' on F5
-		- dependency analysis to only include assets, source files and libraries you actually use
+		- model and dependency analysis to only include assets, source files and libraries you actually use
 	</script></section>
 	
 </section>
@@ -147,6 +156,8 @@
 
 <section data-markdown><script type="text/template">
 	# Demo Time
+
+	#### Node.JS fanatics look away now <!-- .element: class="fragment" -->
 </script></section>
 
 
@@ -155,10 +166,6 @@
 	<section data-markdown><script type="text/template">
 		# Let's create an app
 	</script></section>
-
-	<section data-markdown><script type="text/template">
-		<img src="images/glasgowjs-bladerunnerjs-workflow/appOverview.png" />
-	</script></section>
 	
 </section>
 	
@@ -166,6 +173,10 @@
 	
 	<section data-markdown><script type="text/template">
 		# How about some functionality?
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		# Lets talk about Blades
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -181,15 +192,15 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-		<img src="images/glasgowjs-bladerunnerjs-workflow/asset-structure.png" />
-	</script></section>
-
-	<section data-markdown><script type="text/template">
 		## We can develop blades in isoltation using Workbenches
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 		## And test them in isolation!
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		<img src="images/glasgowjs-bladerunnerjs-workflow/workbench_v2.png" />
 	</script></section>
 	
 </section>
@@ -204,6 +215,10 @@
 	<section data-markdown><script type="text/template">
 		<img src="images/glasgowjs-bladerunnerjs-workflow/brjs-aspects.png" />
 	</script></section>
+
+	<section data-markdown><script type="text/template">
+		# BRJS Todo MVC App
+	</script></section>
 	
 </section>
 
@@ -216,8 +231,9 @@
 	
 	<section data-markdown><script type="text/template">
 		## More cool features
-		- minification
 		- WAR and flat file deployment
+		- service registry
+		- event hub
 		- dependency analysis
 		- theme support
 		- i18n support
@@ -235,6 +251,10 @@
 		 - SASS
 		- Automatic App cache
 		- Auto linting on refresh
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		# Look Ma' No Config!
 	</script></section>
 	
 </section>
@@ -273,7 +293,7 @@
 
 
 <section data-markdown><script type="text/template">	
-	## Questions
+	## Questions?
 
 	Andy Berry [@andyberry88](https://twitter.com/andyberry88)
 
