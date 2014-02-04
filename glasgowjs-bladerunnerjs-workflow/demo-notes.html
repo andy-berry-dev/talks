@@ -1,26 +1,55 @@
-#### Create skeleton app and feature blade
+<!doctype html>
+<html lang="en">
 
----
+<head>
+	<meta charset="utf-8">
+
+	<base href="../">
+
+	<title>Demo Notes | GlasgowJS BladeRunnerJS Workflow</title>
+
+	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container" id="markdown">
+
+# GlasgowJS BladeRunnerJS Workflow Demo Notes
+
+## Create skeleton app and feature blade
+
+### Create app
+
+```
 ./brjs serve
----
+```
 
-open dashboard
+Open dashboard
 
----
+Create app
+
+```
 ./brjs create-app brjs-todo
+```
+
+show running app and structure
+	
+### Add a feature - create a new blade
+
+```
 ./brjs create-bladeset brjs-todo todo
 ./brjs create-blade brjs-todo todo todoinput
----
-
+```
+	
 view blade in workbench
 
-#### Run tests
+## Run tests
 
----
+```
 ./brjs test ../apps/brjs-todo/todo/blades/todoinput
----
+```
 
-#### Change the value of property
+Change the value of property
 
 assert property is "Hello Glasgow JS!"
 
@@ -30,13 +59,13 @@ fix tests
 
 show in workbench
 
-#### Add blade to app
+## Add blade to app
 
 remove `<p>...</p>` from index.html
 
-add to App.js
+replace App.js
 
----
+```
 "use strict";
 
 var PresenterComponent = require('br/presenter/component/PresenterComponent');
@@ -48,13 +77,13 @@ var App = function() {
 };
 
 module.exports = App;
----
+```
 
-#### Update blade
+## Update blade
 
----
+```
 cp ../../1-update-input/* ../apps/brjs-todo/
----
+```
 
 open workbench
 
@@ -62,18 +91,18 @@ show new model and new view
 
 open app
 
-#### Add new Blade
+## Add new Blade
 
----
+```
 cp -r ../../2-list-blade/* ../apps/brjs-todo/
----
+```
 
 open Blade's workbench
 
 
-#### Add both blades to app
+## Add both blades to app
 
----
+```
 "use strict";
 
 var PresenterComponent = require('br/presenter/component/PresenterComponent');
@@ -89,13 +118,16 @@ var App = function() {
 };
 
 module.exports = App;
----
+```
 
 
-#### Change todoinput to use event hub
+## Change todoinput to use event hub
 
-##### Update blade model
----
+### Update blade model
+
+replace `keyPressed` function 
+	
+```
 TodoInputViewModel.prototype.keyPressed = function( data, event ) {
   if( event.keyCode === ENTER_KEY_CODE ) {
   	var todoItem = { title: this.todoText.value.getValue() }
@@ -109,14 +141,27 @@ TodoInputViewModel.prototype.keyPressed = function( data, event ) {
 
   return true;
 };
----
+```
 
-##### Use eventhub in workbench
+### Use eventhub in workbench
 
----
+```
 	var ServiceRegistry = require('br/ServiceRegistry');
 	var eventHub = ServiceRegistry.getService('br.event-hub');
 	eventHub.channel( 'todo-list' ).on( 'todo-added', function(e) { console.log(e); } );
----
+```
 
-#### Demo working app with 2 blades
+## Demo working app with 2 blades
+
+
+</div><!-- end .markdown -->
+
+<script src="reveal.js/plugin/markdown/marked.js"></script>
+
+<script>
+	var markdownElement = document.getElementById("markdown");
+	markdownElement.innerHTML = marked( markdownElement.innerHTML );
+</script>
+
+</body>
+</html>
