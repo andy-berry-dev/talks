@@ -55,8 +55,11 @@ body {
 }
 
 .reveal ul li {
-	list-style: url('./br-logo-white-trans-icon.png');
-	padding-left:5px;
+	background: url('./br-logo-white-trans-icon.png') no-repeat;
+	background-position: 0 24px;
+	padding: 5px 5px 5px 40px;
+	list-style: none;
+	margin: 0;
 }
 
 .reveal ul ul {
