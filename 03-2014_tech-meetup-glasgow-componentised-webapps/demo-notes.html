@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<base href="../">
+
+	<title>Demo Notes | Tech Meetup Componentised Webapps using BladeRunnerJS</title>
+
+	<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container" id="markdown">
+
+# Tech Meetup Glasgow Demo Notes
+
+## Create skeleton app and feature blade
+
+### Create app
+
+```
+./brjs serve
+```
+
+Open dashboard
+
+Create app
+
+```
+./brjs create-app example
+```
+
+show running app and structure
+
+### Add a feature - create a new blade
+
+```
+./brjs create-bladeset example example
+./brjs create-blade example example hello
+```
+
+view blade in workbench
+
+## Run tests
+
+```
+./brjs test ../apps/brjs-todo/todo/blades/todoinput
+```
+
+Change the value of property
+
+assert property is "Hello Tech Meetup!"
+
+tests fail
+
+fix tests
+
+show in workbench
+
+## Add blade to app
+
+remove `<p>...</p>` from index.html
+
+replace App.js
+
+```
+'use strict';
+
+var KnockoutComponent = require( 'br/knockout/KnockoutComponent' );
+
+var HelloViewModel = require( 'example/example/hello/HelloViewModel' );
+
+var App = function() {
+  var helloViewModel = new HelloViewModel();
+  var helloComponent = new KnockoutComponent( 'example.example.hello.view-template', helloViewModel );
+  document.body.appendChild( helloComponent.getElement() );
+};
+
+module.exports = App;
+
+```
+
+## Update blade
+
+```
+cp -r ../../brjstodo-getting-started.STARTING-POINT/ ./
+```
+
+show app
+
+show blades
+
+partially implement input Blade
+
+model:
+```
+'use strict';
+
+var ko = require( 'ko' );
+
+
+var ENTER_KEY_CODE = 13;
+
+function InputViewModel() {
+  this.todoText = ko.observable( '' );
+}
+
+InputViewModel.prototype.keyPressed = function( item, event ) {
+  if( event.keyCode === ENTER_KEY_CODE ) {
+    var todoTextValue = this.todoText();
+    var eventData = { title: todoTextValue };
+
+    console.log(eventData);
+
+    this.todoText( '' );
+  }
+
+  return true;
+};
+
+module.exports = InputViewModel;
+```
+
+view:
+```
+<div id="brjstodo.todo.input.view-template">
+  <header id="header">
+    <h1>todos</h1>
+    <input id="new-todo" type="text" class="todo-input"
+           data-bind="value:todoText,
+                      valueUpdate:'afterkeydown',
+                      event: { keypress: keyPressed }"
+           placeholder="What needs to be done?" />
+  </header>
+</div>
+```
+
+update blade workbench
+
+
+## Add input Blade to app
+
+```
+'use strict';
+
+var InputViewModel = require( 'brjstodo/todo/input/InputViewModel' );
+var ItemsViewModel = require( 'brjstodo/todo/items/ItemsViewModel' );
+
+var KnockoutComponent = require( 'br/knockout/KnockoutComponent' );
+
+var App = function() {
+  var inputViewModel = new InputViewModel();
+  var inputComponent =
+    new KnockoutComponent( 'brjstodo.todo.input.view-template', inputViewModel );
+
+  var itemsViewModel = new ItemsViewModel();
+  var itemsComponent =
+    new KnockoutComponent( 'brjstodo.todo.items.view-template', itemsViewModel );
+
+  var todoAppEl = document.getElementById( 'todoapp' );
+  todoAppEl.appendChild( inputComponent.getElement() );
+  todoAppEl.appendChild( itemsComponent.getElement() );
+};
+
+module.exports = App;
+```
+
+demo app
+
+notice no communication between blades
+
+## Change input to use event hub
+
+```
+'use strict';
+
+var ko = require( 'ko' );
+
+var ServiceRegistry = require( 'br/ServiceRegistry' );
+
+var ENTER_KEY_CODE = 13;
+
+function InputViewModel() {
+  this.todoText = ko.observable( '' );
+
+  this._eventHub = ServiceRegistry.getService( 'br.event-hub' );
+}
+
+InputViewModel.prototype.keyPressed = function( item, event ) {
+  if( event.keyCode === ENTER_KEY_CODE ) {
+    var todoTextValue = this.todoText();
+    var eventData = { title: todoTextValue };
+
+    this._eventHub.channel( 'todo-list' ).trigger( 'todo-added', eventData );
+
+    this.todoText( '' );
+  }
+
+  return true;
+};
+
+module.exports = InputViewModel;
+
+```
+
+
+</div><!-- end .markdown -->
+
+<script src="reveal.js/plugin/markdown/marked.js"></script>
+
+<script>
+	var markdownElement = document.getElementById("markdown");
+	markdownElement.innerHTML = marked( markdownElement.innerHTML );
+</script>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<base href="../">
+
+	<title>Tech Meetup Glasgow - Componentised Webapps using BladeRunnerJS | Andy Berry - www.andy-berry.co.uk - @andyberry88</title>
+
+	<meta name="description" content="Componentised Webapps using BladeRunnerJS">
+	<meta name="author" content="Andy Berry">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+	<link rel="stylesheet" href="brjs-revealjs-theme/style.css" id="theme">
+	<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+	<script>
+		document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+
+	<script type="text/javascript">//<![CDATA[
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-10944682-2']);
+	_gaq.push(['_trackPageview']);
+	(function () {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+	//]]></script>
+</head>
+<body>
+
+	<div class="reveal">
+		<div class="slides">
+
+<section>
+
+	<section data-markdown data-background="url('images/glasgowjs-bladerunnerjs-workflow/blade-runner-los-angeles.jpg') bottom no-repeat" data-background-size="100%"><script type="text/template">
+		# Componentised Webapps using [BladeRunnerJS](http://bladerunnerjs.org)
+	</script></section>
+
+
+	<section data-markdown><script type="text/template">
+		Andy Berry [@andyberry88](https://twitter.com/andyberry88)
+
+		[www.andy-berry.co.uk](http://www.andy-berry.co.uk)
+
+		<br/>
+		<a href="http://www.caplin.com">
+			<img src="images/glasgowjs-bladerunnerjs-workflow/caplin-logo-245x37.png" style="max-width: 200px" />
+		</a>
+
+		<a href="http://bladerunnerjs.org">
+			<img src="images/glasgowjs-bladerunnerjs-workflow/bladerunner-js-white-trans-lrg.png" style="max-width: 450px" />
+		</a>
+
+		<aside class="notes"><pre>
+		- work for Caplin
+			- primary market is financial trading webapps and the supporting back-end services
+		- specicially working on project open sourcing BRJS
+		</pre></aside>
+	</script></section>
+
+</section>
+
+
+<section>
+
+	<section data-markdown><script type="text/template">
+		# Componentisation
+
+		### Let&#39;s forget the &quot;webapp&quot; bit for the moment
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## We&#39;re taught about OO
+
+		- **S**ingle responsibility
+		- **O**pen for extension, closed for modification
+		- **L**iskov substitution
+		- **I**nterface segregation
+		- **D**ependency inversion
+
+		</br>
+		> &quot;Reduce Coupling and Increase Cohesion&quot;
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## We accept this is a good way to do things
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## Why don&#39;t we do the same for our webapps?
+	</script></section>
+
+
+	<section data-markdown><script type="text/template">
+		## Because *sometimes* we can get away with it
+
+		### Until it catches up with us!<!-- .element: class="fragment" -->
+	</script></section>
+
+</section>
+
+
+<section>
+
+	<section data-markdown><script type="text/template">
+		## Caplin has been creating large scale webapps for the last 15 years
+		<video controls data-autoplay>
+			<source src="videos/glasgowjs-bladerunnerjs-workflow/trader2.mp4" type="video/mp4">
+			<source src="videos/glasgowjs-bladerunnerjs-workflow/trader2.webm" type="video/webm">
+			<img src="images/glasgowjs-bladerunnerjs-workflow/trader2.png" />
+		</video>
+	</script></section>
+
+
+	<section data-markdown><script type="text/template">
+		## We&#39;ve written
+		<a href="http://bladerunnerjs.org">
+			<img src="images/glasgowjs-bladerunnerjs-workflow/bladerunner-js-white-trans-lrg.png" style="max-width: 50%" />
+		</a>
+		## to help us write these componentised webapps
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		<a href="http://bladerunnerjs.org">
+			<img src="images/glasgowjs-bladerunnerjs-workflow/bladerunner-js-white-trans-lrg.png" style="max-width: 50%" />
+		</a>
+
+		<blockquote>
+			"a development <span class="highlight">toolkit</span> and lightweight <span class="highlight">framework</span> for building modular large-scale HTML5 single page web apps. It consists of a set of <span class="highlight">conventions</span> plus associated <span class="highlight">tools</span> and <span class="highlight">libraries</span> that make it easy to <span class="highlight">develop</span>, <span class="highlight">test</span>, deploy and <span class="highlight">maintain</span> large JavaScript apps"
+		</blockquote>
+
+		<br/>
+
+		- Developer toolkit focusing on developer workflow
+		- Tools, conventions and a set of micro libraries for building componentised, modular apps
+
+	</script></section>
+
+</section>
+
+
+<section>
+
+	<section data-markdown><script type="text/template">
+		## How does BladeRunnerJS help with componentised webapps?
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## Allows Vertical slices of functionality
+		<img src="images/glasgowjs-bladerunnerjs-workflow/asset-structure.png" />
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## Features/components can be built and tested in isolation
+		<img src="images/glasgowjs-bladerunnerjs-workflow/workbench_v2.png" />
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## And assembled to create an app
+		<img src="images/glasgowjs-bladerunnerjs-workflow/caplin-fx-motif.png" />
+	</script></section>
+
+</section>
+
+
+<section>
+
+<section data-markdown><script type="text/template">
+	# Demo Time
+
+	<img src="images/tech-meetup-glasgow-componentised-webapps/brjs-todo.png" />
+
+	<aside class="notes">  <!-- link relative to reveal.js/plugin/notes/notes.html not the slides page -->
+		<a href="../../../03-2014_tech-meetup-glasgow-componentised-webapps/demo-notes.html" target="_blank">Demo Notes</a>
+	</aside>
+
+	<sub style="font-size:70%">* or even &quot;<em>Pray</em> to Demo Gods&quot;</sub>
+</script></section>
+
+<section data-markdown><script type="text/template">
+	## How does this help with componentised webapps?
+
+	- Created our component as a Blade
+	- Developed it in a Workbench
+	- Tested it
+	- Added it to our App
+</script></section>
+
+</section>
+
+
+<section>
+
+	<section data-markdown><script type="text/template">
+		## More cool features
+		- WAR and flat file deployment
+		- Dependency analysis
+		- Theme support
+		- i18n support
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+		## Plugin Support
+		- Custom commands
+		 - Deploy to Heroku etc.
+		 - Create app from GitHub
+		- New 'bundlers'
+		 - Typescript
+		 - Coffeescript
+		 - LESS
+		 - SASS
+		- Automatic linting
+		- Custom 'content' plugins
+		 - App cache
+	</script></section>
+
+</section>
+
+<section data-markdown><script type="text/template">
+	## The path to 1.0
+	- Refining some features after open sourcing
+	- Flat file deployment and simplified directory structure coming soon
+	- Global install and context aware commands
+	- Bladesets and aspects optional
+	- More cool stuff!
+
+	<small>BRJS 1.0 Roadmap - [bladerunnerjs.org/docs/roadmap/](bladerunnerjs.org/docs/roadmap/)</small>
+</script></section>
+
+<section data-markdown><script type="text/template">
+	## Have a go
+
+	v0.5 released last week
+
+	https://github.com/BladeRunnerJS/brjs/releases
+
+	http://bladerunnerjs.org/docs/use/getting_started/
+</script></section>
+
+<section data-markdown><script type="text/template">
+	## Get involved
+
+	https://github.com/BladeRunnerJS/brjs/
+
+	[@bladerunnerjs]([https://twitter.com/bladerunnerjs)
+</script></section>
+
+
+<section data-markdown><script type="text/template">
+	## Questions?
+
+	Andy Berry [@andyberry88](https://twitter.com/andyberry88)
+
+	[www.andy-berry.co.uk](http://www.andy-berry.co.uk)
+
+	<a href="http://bladerunnerjs.org">
+		<img src="images/glasgowjs-bladerunnerjs-workflow/bladerunner-js-white-trans-lrg.png" style="max-width: 30%;" />
+	</a>
+
+	[@bladerunnerjs](https://twitter.com/bladerunnerjs)
+
+	[bladerunnerjs.org](http://bladerunnerjs.org)
+</script></section>
+
+		</div> <!-- end .slides -->
+	</div> <!-- end .reveal -->
+
+	<script src="reveal.js/lib/js/head.min.js"></script>
+	<script src="reveal.js/js/reveal.min.js"></script>
+
+	<script>
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			width: 1280,
+			height: 800,
+
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			slideNumber: true,
+
+			theme: Reveal.getQueryHash().theme,
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+			dependencies: [
+				{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+	</script>
+
+</body>
